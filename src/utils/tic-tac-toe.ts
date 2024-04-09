@@ -14,10 +14,13 @@ type Grid = [Row, Row, Row]
 
 export const checkHasWinner = (grid: Grid): Value => {
     let winner: Value
-    const lastColIndex = grid.length - 1
 
-    // Not optimal as it does not exit early after finding a winner
-    grid.forEach((row, rowIndex) => {
+    const lastRowIndex = grid.length - 1
+    let rowIndex = 0
+
+    while (!winner && rowIndex <= lastRowIndex) {
+        const row = grid[rowIndex]
+
         // row
         const firstRowValue = row[0]
         const lastRowIndex = row.length - 1
@@ -43,12 +46,12 @@ export const checkHasWinner = (grid: Grid): Value => {
         let currentRowIndex = 1
         const firstColValue = grid[0][colIndex]
 
-        while (!winner && currentRowIndex <= lastColIndex) {
+        while (!winner && currentRowIndex <= lastRowIndex) {
             if (!firstColValue || grid[currentRowIndex][colIndex] !== firstColValue) {
                 break
             }
 
-            if (currentRowIndex >= lastColIndex) {
+            if (currentRowIndex >= lastRowIndex) {
                 winner = firstColValue
                 break
             } else {
@@ -58,10 +61,10 @@ export const checkHasWinner = (grid: Grid): Value => {
 
         // diagonal
         // only valid if square
-        if (lastColIndex !== lastRowIndex) return
+        if (lastRowIndex !== lastRowIndex) continue
 
         const topLeftValue = grid[0][0]
-        const lastIndex = lastColIndex // same as lastRowIndex
+        const lastIndex = lastRowIndex // same as lastRowIndex
         let dDownIndex = 1
 
         while (!winner && dDownIndex <= lastIndex) {
@@ -98,7 +101,9 @@ export const checkHasWinner = (grid: Grid): Value => {
                 dUpColIndex++
             }
         }
-    })
+
+        rowIndex++
+    }
 
     return winner
 }
