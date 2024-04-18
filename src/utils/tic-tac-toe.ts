@@ -1,19 +1,17 @@
 // NOTES:
-// - Types are currently fixed to a 3x3
-//   - Runtime will allow for catering different sizes
 // - Assumption: Diagonals are only valid if the grid is square
 // - Not all edge cases have been catered for
 
-type Value = "x" | "o" | undefined
-type Row = [Value?, Value?, Value?]
-type Grid = [Row, Row, Row]
+type Value = "x" | "o"
+type Row = (Value | null)[]
+type Grid = Row[]
 
 // grid[0][0]  grid[0][1]  grid[0][2]
 // grid[1][0]  grid[1][1]  grid[1][2]
 // grid[2][0]  grid[2][1]  grid[2][2]
 
-export const checkHasWinner = (grid: Grid): Value => {
-    let winner: Value
+export const checkHasWinner = (grid: Grid): Value | undefined => {
+    let winner: Value | undefined
 
     const lastRowIndex = grid.length - 1
     let rowIndex = 0

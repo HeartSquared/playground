@@ -5,31 +5,31 @@ describe("checkHasWinner()", () => {
   test("rows", () => {
     expect(checkHasWinner([
       ["x", "x", "x"],
-      [],
-      [],
+      [null, null, null],
+      [null, null, null],
     ])).toBe("x")
     expect(checkHasWinner([
-      [],
+      [null, null, null],
       ["x", "x", "x"],
-      [],
+      [null, null, null],
     ])).toBe("x")
     expect(checkHasWinner([
       ["x", "o", "x"],
-      [],
-      [],
+      [null, null, null],
+      [null, null, null],
     ])).toBe(undefined)
   })
 
   test("columns", () => {
     expect(checkHasWinner([
-      ["x", "o"],
-      ["x", undefined, "o"],
-      ["x"],
+      ["x", "o", null],
+      ["x", null, "o"],
+      ["x", null, null],
     ])).toBe("x")
     expect(checkHasWinner([
-      ["x", "o"],
-      [undefined, "o", "o"],
-      ["x", "o"],
+      ["x", "o", null],
+      [null, "o", "o"],
+      ["x", "o", null],
     ])).toBe("o")
   })
 
@@ -40,8 +40,8 @@ describe("checkHasWinner()", () => {
       ["o", "o", "x"],
     ])).toBe("x")
     expect(checkHasWinner([
-      ["x", undefined, "o"],
-      [undefined, "o", undefined],
+      ["x", null, "o"],
+      [null, "o", null],
       ["o", "x", "x"],
     ])).toBe("o")
   })
