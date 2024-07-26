@@ -3,8 +3,8 @@ module.exports = {
   env: { browser: true, es2020: true },
   settings: {
     react: {
-      version: "detect",
-    }
+      version: 'detect',
+    },
   },
   extends: [
     'eslint:recommended',
@@ -22,4 +22,4 @@ module.exports = {
       { allowConstantExport: true },
     ],
   },
-}
+};
