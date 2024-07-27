@@ -1,18 +1,20 @@
+import { Fragment } from 'react';
 import { ExaminationImagesList } from '../../components/ExaminationImagesList';
+import { groupExaminations } from './utils/groupExaminations';
 import { examinations } from './examinations.json';
 
 export const ExaminationsPage = (): JSX.Element => {
-  console.log(examinations);
+  const group = groupExaminations(examinations, 'date');
 
-  const tempData = {
-    date: '2019-04-01',
-    eye: 'L',
-    modality: 'OCT',
-    note: 'Left eye thickness is 2um which is normal',
-    thumbnail: '/images/20190401_oct_left.jpg',
-  } as const;
-
-  const images = [tempData, { ...tempData, eye: 'R' } as const];
-
-  return <ExaminationImagesList images={images} />;
+  return (
+    <div>
+      <h1>Examinations</h1>
+      {Object.keys(group).map((key) => (
+        <Fragment key={key}>
+          <h2>{key}</h2>
+          <ExaminationImagesList key={key} images={group[key]} />
+        </Fragment>
+      ))}
+    </div>
+  );
 };
