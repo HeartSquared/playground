@@ -1,0 +1,15 @@
+.examination-image {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border-primary);
+  background-color: white;
+  padding: var(--spacing-20);
+}
+
+.examination-image__dt::after {
+  content: ':';
+}
+
+.examination-image__dd {
+  padding-inline-start: var(--spacing-20);
+}

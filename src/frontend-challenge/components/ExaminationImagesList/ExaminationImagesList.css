@@ -1,0 +1,7 @@
+.examination-images-list {
+  display: grid;
+  padding: 0;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-20);
+  list-style: none;
+}
