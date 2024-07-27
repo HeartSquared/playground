@@ -7,7 +7,7 @@ import './ExaminationImage.css';
 
 export type ExaminationImageProps = {
   date: string;
-  eye: 'L' | 'R';
+  eye: string;
   modality: string;
   note: string;
   thumbnail: string;
@@ -20,6 +20,7 @@ export const ExaminationImage = ({
   note,
   thumbnail,
 }: ExaminationImageProps): JSX.Element => {
+  // Assume that the data only ever comes in as 'L' or 'R'
   const eyeFullString = eye === 'L' ? 'Left eye' : 'Right eye';
   return (
     <div className="examination-image">
