@@ -1,13 +1,8 @@
-import { ExaminationsList } from './components/ExaminationsList';
-import { examinations } from './examinations.json';
+import { ExaminationsPage } from './pages/ExaminationsPage';
 import './App.css';
 
-export const App = (): JSX.Element => {
-  console.log(examinations);
-
-  return (
-    <div className="app-container">
-      <ExaminationsList />
-    </div>
-  );
-};
+export const App = (): JSX.Element => (
+  <div className="app-container">
+    <ExaminationsPage />
+  </div>
+);
