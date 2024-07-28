@@ -11,8 +11,11 @@
   font-family:
     Work Sans,
     sans-serif;
-  background-color: var(--color-bg-main);
   color: var(--color-text);
+}
+
+.app-body {
+  background-color: var(--color-bg-main);
 }
 
 #root {
