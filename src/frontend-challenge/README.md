@@ -58,3 +58,5 @@ _Extracted from PDF._
 
 - Loch ness image isn't relevant. Would not commit normally.
 - Stories are added as a representation of visual regression tests.
+- Styles not finessed.
+- Naming is hard.
