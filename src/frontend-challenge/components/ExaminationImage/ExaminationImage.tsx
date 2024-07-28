@@ -1,10 +1,5 @@
 import './ExaminationImage.css';
 
-/*
- * Notes:
- * - Add visual regression test if using (eg. Story for Chromatic)
- */
-
 export type ExaminationImageProps = {
   date: string;
   eye: string;

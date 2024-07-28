@@ -2,11 +2,6 @@ import { ImageMeta } from '../../pages/ExaminationsPage/types';
 import { ExaminationImage } from '../ExaminationImage';
 import './ExaminationImagesList.css';
 
-/*
- * Notes:
- * - Add visual regression test if using (eg. Story for Chromatic)
- */
-
 export type ExaminationImagesListProps = {
   images: ImageMeta[];
 };
