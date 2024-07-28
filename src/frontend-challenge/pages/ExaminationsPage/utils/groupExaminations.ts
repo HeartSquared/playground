@@ -6,7 +6,7 @@ type GroupedExaminations = {
 
 export const groupExaminations = (
   examinations: QueryExaminations,
-  groupBy: 'date' | 'modality',
+  groupBy: keyof ImageMeta,
 ): GroupedExaminations => {
   return examinations.reduce<GroupedExaminations>((acc, { date, images }) => {
     images.forEach((image) => {

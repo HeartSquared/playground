@@ -1,18 +1,35 @@
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import { ExaminationImagesList } from '../../components/ExaminationImagesList';
+import { RadioGroup } from '../../components/RadioGroup';
 import { groupExaminations } from './utils/groupExaminations';
 import { examinations } from './examinations.json';
+import { ImageMeta } from './types';
+
+const groupByOptions = [
+  { label: 'Date', value: 'date' },
+  { label: 'Modality', value: 'modality' },
+] satisfies { label: string; value: keyof ImageMeta }[];
 
 export const ExaminationsPage = (): JSX.Element => {
-  const group = groupExaminations(examinations, 'date');
+  const [groupBy, setGroupBy] = useState<keyof ImageMeta>('date');
+  const groupedExaminations = groupExaminations(examinations, groupBy);
 
   return (
     <div>
       <h1>Examinations</h1>
-      {Object.keys(group).map((key) => (
+
+      <RadioGroup
+        legend="Group by"
+        name="group-by"
+        activeOption={groupBy}
+        onOptionChange={setGroupBy}
+        options={groupByOptions}
+      />
+
+      {Object.keys(groupedExaminations).map((key) => (
         <Fragment key={key}>
           <h2>{key}</h2>
-          <ExaminationImagesList key={key} images={group[key]} />
+          <ExaminationImagesList key={key} images={groupedExaminations[key]} />
         </Fragment>
       ))}
     </div>
