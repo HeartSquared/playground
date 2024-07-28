@@ -1,5 +1,41 @@
 # iCare Oculo - Frontend challenge
 
+## Installation
+
+Note: All commands are run from the root of the repo.
+
+This app runs using [pnpm](https://pnpm.io/).
+
+Install packages (prerequisite):
+
+```
+pnpm i
+```
+
+To run the app:
+
+```
+pnpm dev
+```
+
+To run storybook:
+
+```
+pnpm storybook
+```
+
+To run tests:
+
+```
+pnpm test
+```
+
+To run linting:
+
+```
+pnpm lint
+```
+
 ## Brief
 
 _Extracted from PDF._
@@ -21,3 +57,4 @@ _Extracted from PDF._
 ## Notes
 
 - Loch ness image isn't relevant. Would not commit normally.
+- Stories are added as a representation of visual regression tests.
