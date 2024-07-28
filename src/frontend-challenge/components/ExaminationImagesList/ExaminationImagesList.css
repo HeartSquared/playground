@@ -1,7 +1,18 @@
+.container__examination-images-list {
+  container-type: inline-size;
+}
+
 .examination-images-list {
+  height: 100%;
   display: grid;
   padding: 0;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--spacing-20);
   list-style: none;
+}
+
+@container (width < 500px) {
+  .examination-images-list {
+    grid-template-columns: 1fr;
+  }
 }

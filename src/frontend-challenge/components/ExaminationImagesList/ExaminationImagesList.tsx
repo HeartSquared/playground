@@ -15,12 +15,14 @@ export const ExaminationImagesList = ({
   images,
 }: ExaminationImagesListProps): JSX.Element => {
   return (
-    <ul className="examination-images-list">
-      {images.map((imageProps, i) => (
-        <li key={i}>
-          <ExaminationImage {...imageProps} />
-        </li>
-      ))}
-    </ul>
+    <div className="container__examination-images-list">
+      <ul className="examination-images-list">
+        {images.map((imageProps, i) => (
+          <li key={i}>
+            <ExaminationImage {...imageProps} />
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
