@@ -3,7 +3,6 @@
 }
 
 .examination-images-list {
-  height: 100%;
   display: grid;
   padding: 0;
   grid-template-columns: repeat(2, 1fr);
