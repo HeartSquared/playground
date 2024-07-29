@@ -1,8 +1,8 @@
-.radio-group__options {
+.radio-group__option {
   display: inline-flex;
   gap: var(--spacing-4);
 
-  + .radio-group__options {
+  + .radio-group__option {
     margin-inline-start: var(--spacing-8);
   }
 }

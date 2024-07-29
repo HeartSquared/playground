@@ -20,7 +20,7 @@ export const RadioGroup = <OptionValues extends string>({
     {options.map(({ label, value }) => {
       const inputId = `${name}--${value}`;
       return (
-        <div key={value} className="radio-group__options">
+        <div key={value} className="radio-group__option">
           <input
             type="radio"
             name={name}
