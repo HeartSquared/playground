@@ -1,4 +1,4 @@
-import { ImageMeta, QueryExaminations } from '../types';
+import type { ImageMeta, QueryExaminations } from '../types';
 
 type GroupedExaminations = {
   [key: string]: ImageMeta[];

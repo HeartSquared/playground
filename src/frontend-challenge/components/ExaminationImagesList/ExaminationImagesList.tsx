@@ -1,4 +1,4 @@
-import { ImageMeta } from '../../pages/ExaminationsPage/types';
+import type { ImageMeta } from '../../pages/ExaminationsPage/types';
 import { ExaminationImage } from '../ExaminationImage';
 import './ExaminationImagesList.css';
 

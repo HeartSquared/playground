@@ -3,7 +3,7 @@ import { ExaminationImagesList } from '../../components/ExaminationImagesList';
 import { RadioGroup } from '../../components/RadioGroup';
 import { groupExaminations } from './utils/groupExaminations';
 import { examinations } from './examinations.json';
-import { ImageMeta } from './types';
+import type { ImageMeta } from './types';
 
 const groupByOptions = [
   { label: 'Date', value: 'date' },
