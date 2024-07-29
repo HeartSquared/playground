@@ -1,9 +1,8 @@
-import type { ImageMeta } from '../../pages/ExaminationsPage/types';
-import { ExaminationImage } from '../ExaminationImage';
+import { ExaminationImage, ExaminationImageProps } from '../ExaminationImage';
 import './ExaminationImagesList.css';
 
 export type ExaminationImagesListProps = {
-  images: ImageMeta[];
+  images: ExaminationImageProps[];
 };
 
 export const ExaminationImagesList = ({
