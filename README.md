@@ -18,3 +18,11 @@ Tests run with Vitest and React Testing Library.
 ```
 pnpm test
 ```
+
+## Running a script
+
+For running TypeScript files in the command line.
+
+```
+pnpm tsx [path-to-ts-script]
+```
