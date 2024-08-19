@@ -8,8 +8,8 @@ describe('calculateTermDeposit()', () => {
       const startDepositAmount = 10000;
       // 1.10%
       const interestRate = 1.1;
-      // 3 years = 36 months
-      const investmentTerm = 36;
+      // 3 years
+      const investmentTerm = 3;
       // At Maturity
       const interestPaid = 'at_maturity';
       // Final balance $10,330
@@ -19,7 +19,7 @@ describe('calculateTermDeposit()', () => {
         calculateTermDeposit({
           startAmount: startDepositAmount,
           interestRate,
-          term: investmentTerm,
+          termYears: investmentTerm,
           interestPaid,
         }),
       ).toBe(expected);
