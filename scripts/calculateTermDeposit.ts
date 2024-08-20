@@ -1,13 +1,14 @@
+import { calculateFinalBalance } from './calculateFinalBalance';
 import { convertInterestRateToDecimal } from './convertInterestRateToDecimal';
+import type { InterestPaidOptions } from './types';
 
 type CalculateTermDepositArgs = {
   // Whole dollars
   startAmount: number;
   // Percent per annum
   interestRate: number;
-  // In years
   termYears: number;
-  interestPaid: 'monthly' | 'quarterly' | 'annually' | 'at_maturity';
+  interestPaid: InterestPaidOptions;
 };
 
 export const calculateTermDeposit = ({
@@ -17,7 +18,11 @@ export const calculateTermDeposit = ({
   interestPaid,
 }: CalculateTermDepositArgs): number => {
   const interestRateDecimal = convertInterestRateToDecimal(interestRate);
-  const annualInterest = interestRateDecimal * startAmount;
-  const totalInterest = annualInterest * termYears;
-  return startAmount + totalInterest;
+
+  return calculateFinalBalance({
+    startAmount,
+    interestRateDecimal,
+    termYears,
+    interestPaid,
+  });
 };
