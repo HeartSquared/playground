@@ -1,3 +1,4 @@
+import { calculateMonthlyInterest } from './calculateMonthlyInterest';
 import { calculateQuarterlyInterest } from './calculateQuarterlyInterest';
 import type { InterestPaidOptions } from './types';
 
@@ -44,6 +45,14 @@ export const calculateFinalBalance = ({
       startAmount,
       interestRateDecimal,
       paymentsRemaining: termYears * 4,
+    });
+  }
+
+  if (interestPaid === 'monthly') {
+    totalInterest += calculateMonthlyInterest({
+      startAmount,
+      interestRateDecimal,
+      paymentsRemaining: termYears * 12,
     });
   }
 
