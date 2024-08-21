@@ -1,20 +1,45 @@
-import readline from 'readline';
+import prompts from 'prompts';
+import {
+  calculateTermDeposit,
+  CalculateTermDepositArgs,
+} from './calculateTermDeposit';
+import { PromptObject } from 'prompts';
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+type QuestionNames = keyof CalculateTermDepositArgs;
 
-rl.question('Is this example useful? [y/n] ', (answer) => {
-  switch (answer.toLowerCase()) {
-    case 'y':
-      console.log('Super!');
-      break;
-    case 'n':
-      console.log('Sorry! :(');
-      break;
-    default:
-      console.log('Invalid answer!');
-  }
-  rl.close();
-});
+const questions = [
+  {
+    type: 'number',
+    name: 'startAmount',
+    message: 'Deposit amount $',
+    validate: (value) => (value ? true : 'Please enter a value'),
+  },
+  {
+    type: 'number',
+    name: 'interestRate',
+    message: 'Interest rate %',
+    float: true,
+  },
+  {
+    type: 'number',
+    name: 'termYears',
+    message: 'Investment term (years)',
+  },
+  {
+    type: 'select',
+    name: 'interestPaid',
+    message: 'Interest paid',
+    choices: [
+      { title: 'Monthly', value: 'monthly' },
+      { title: 'Quarterly', value: 'quarterly' },
+      { title: 'Annually', value: 'annually' },
+      { title: 'At Maturity', value: 'at_maturity' },
+    ],
+  },
+] satisfies PromptObject<QuestionNames>[];
+
+(async (): Promise<void> => {
+  const response = await prompts(questions);
+
+  console.info('Final balance: ', calculateTermDeposit(response));
+})();

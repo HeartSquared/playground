@@ -2,7 +2,7 @@ import { calculateTotalInterest } from './calculateTotalInterest';
 import { convertInterestRateToDecimal } from './convertInterestRateToDecimal';
 import type { InterestPaidOptions } from './types';
 
-type CalculateTermDepositArgs = {
+export type CalculateTermDepositArgs = {
   // Whole dollars
   startAmount: number;
   // Percent per annum
