@@ -1,4 +1,4 @@
-import { calculateFinalBalance } from './calculateFinalBalance';
+import { calculateTotalInterest } from './calculateTotalInterest';
 import { convertInterestRateToDecimal } from './convertInterestRateToDecimal';
 import type { InterestPaidOptions } from './types';
 
@@ -19,10 +19,12 @@ export const calculateTermDeposit = ({
 }: CalculateTermDepositArgs): number => {
   const interestRateDecimal = convertInterestRateToDecimal(interestRate);
 
-  return calculateFinalBalance({
+  const totalInterest = calculateTotalInterest({
     startAmount,
     interestRateDecimal,
     termYears,
     interestPaid,
   });
+
+  return Math.round(startAmount + totalInterest);
 };

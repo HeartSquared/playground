@@ -1,92 +1,92 @@
 import { describe, expect, test } from 'vitest';
-import { calculateFinalBalance } from './calculateFinalBalance';
+import { calculateTotalInterest } from './calculateTotalInterest';
 
-describe('calculateFinalBalance()', () => {
+describe('calculateTotalInterest()', () => {
   describe('interest paid At Maturity', () => {
     test('correctly calculates final balance', () => {
       expect(
-        calculateFinalBalance({
+        calculateTotalInterest({
           startAmount: 10000,
           interestRateDecimal: 0.011,
           termYears: 3,
           interestPaid: 'at_maturity',
         }),
-      ).toBe(10330);
+      ).toBe(330);
 
       expect(
-        calculateFinalBalance({
+        calculateTotalInterest({
           startAmount: 200000,
           interestRateDecimal: 0.0235,
           termYears: 5,
           interestPaid: 'at_maturity',
         }),
-      ).toBe(223500);
+      ).toBe(23500);
     });
   });
 
   describe('interest paid Annually', () => {
     test('correctly calculates final balance', () => {
       expect(
-        calculateFinalBalance({
+        calculateTotalInterest({
           startAmount: 10000,
           interestRateDecimal: 0.011,
           termYears: 3,
           interestPaid: 'annually',
         }),
-      ).toBe(10334);
+      ).toBe(333.64);
 
       expect(
-        calculateFinalBalance({
+        calculateTotalInterest({
           startAmount: 200000,
           interestRateDecimal: 0.0235,
           termYears: 5,
           interestPaid: 'annually',
         }),
-      ).toBe(224631);
+      ).toBe(24630.76);
     });
   });
 
   describe('interest paid Quarterly', () => {
     test('correctly calculates final balance', () => {
       expect(
-        calculateFinalBalance({
+        calculateTotalInterest({
           startAmount: 10000,
           interestRateDecimal: 0.011,
           termYears: 3,
           interestPaid: 'quarterly',
         }),
-      ).toBe(10335);
+      ).toBe(335.04);
 
       expect(
-        calculateFinalBalance({
+        calculateTotalInterest({
           startAmount: 200000,
           interestRateDecimal: 0.0235,
           termYears: 5,
           interestPaid: 'quarterly',
         }),
-      ).toBe(224859);
+      ).toBe(24859);
     });
   });
 
   describe('interest paid Monthly', () => {
     test('correctly calculates final balance', () => {
       expect(
-        calculateFinalBalance({
+        calculateTotalInterest({
           startAmount: 10000,
           interestRateDecimal: 0.011,
           termYears: 3,
           interestPaid: 'monthly',
         }),
-      ).toBe(10335);
+      ).toBe(335.35);
 
       expect(
-        calculateFinalBalance({
+        calculateTotalInterest({
           startAmount: 200000,
           interestRateDecimal: 0.0235,
           termYears: 5,
           interestPaid: 'monthly',
         }),
-      ).toBe(224910);
+      ).toBe(24910.48);
     });
   });
 });
