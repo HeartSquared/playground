@@ -1,3 +1,4 @@
+import { calculateAnnuallyInterest } from './calculateAnnuallyInterest';
 import { calculateMonthlyInterest } from './calculateMonthlyInterest';
 import { calculateQuarterlyInterest } from './calculateQuarterlyInterest';
 import type { InterestPaidOptions } from './types';
@@ -8,7 +9,6 @@ type CalculateFinalBalanceArgs = {
   interestRateDecimal: number;
   termYears: number;
   interestPaid: InterestPaidOptions;
-  total?: number;
 };
 
 export const calculateFinalBalance = ({
@@ -16,9 +16,8 @@ export const calculateFinalBalance = ({
   interestRateDecimal,
   termYears,
   interestPaid,
-  total = 0,
 }: CalculateFinalBalanceArgs): number => {
-  let totalInterest = total;
+  let totalInterest = 0;
 
   if (interestPaid === 'at_maturity') {
     const annualInterest = interestRateDecimal * startAmount;
@@ -26,18 +25,11 @@ export const calculateFinalBalance = ({
   }
 
   if (interestPaid === 'annually') {
-    const annualInterest = interestRateDecimal * (startAmount + totalInterest);
-    totalInterest += annualInterest;
-
-    if (termYears > 1) {
-      return calculateFinalBalance({
-        startAmount,
-        interestRateDecimal,
-        termYears: termYears - 1,
-        interestPaid,
-        total: totalInterest,
-      });
-    }
+    totalInterest += calculateAnnuallyInterest({
+      startAmount,
+      interestRateDecimal,
+      paymentsRemaining: termYears,
+    });
   }
 
   if (interestPaid === 'quarterly') {
