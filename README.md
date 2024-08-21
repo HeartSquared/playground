@@ -26,3 +26,9 @@ For running TypeScript files in the command line.
 ```
 pnpm tsx [path-to-ts-script]
 ```
+
+### Run the Term Deposit script
+
+```
+pnpm run:term-deposit
+```

@@ -13,7 +13,8 @@
     "lint:fix": "pnpm eslint --fix && pnpm prettier --write",
     "test": "vitest",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "run:term-deposit": "pnpm tsx scripts/term-deposit/index.ts"
   },
   "dependencies": {
     "react": "^18.3.1",
