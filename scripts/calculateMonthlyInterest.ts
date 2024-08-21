@@ -24,5 +24,5 @@ export const calculateMonthlyInterest = ({
     });
   }
 
-  return Math.round((totalInterest + monthlyInterest) * 100) / 100;
+  return Number((totalInterest + monthlyInterest).toFixed(2));
 };

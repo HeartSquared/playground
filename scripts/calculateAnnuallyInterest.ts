@@ -23,5 +23,5 @@ export const calculateAnnuallyInterest = ({
     });
   }
 
-  return Math.round((totalInterest + annualInterest) * 100) / 100;
+  return Number((totalInterest + annualInterest).toFixed(2));
 };

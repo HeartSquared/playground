@@ -24,5 +24,5 @@ export const calculateQuarterlyInterest = ({
     });
   }
 
-  return Math.round((totalInterest + quarterlyInterest) * 100) / 100;
+  return Number((totalInterest + quarterlyInterest).toFixed(2));
 };
