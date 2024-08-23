@@ -42,7 +42,6 @@ Reference Site: https://www.bendigobank.com.au/calculators/deposit-and-savings/
 - Interest Rate is assumed to only allow up to 2 decimal places as a percentage (therefore when converted away from %, allows up to 4 decimal places)
 - The final balance is rounded to a whole dollar amount to replicate the Reference Site
 - Values for test cases have been taken from the Reference Site
-- Considered abstracting the multiple `calculate{X}Interest` utils into another function to reduce duplication, but decided against it in the meantime to prevent over-optimisation given Investment Term in months has not yet been implemented (also saves some time). It may have lead to less files though (combined into one) if the functions became small enough.
 
 ### CLI
 

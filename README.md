@@ -2,13 +2,19 @@
 
 Just a playground. Nothing serious.
 
-## Running the app
+## Running a script
 
-App built with Vite and React.
+For running TypeScript files in the command line.
 
 ```
 pnpm i
-pnpm dev
+pnpm tsx [path-to-ts-script]
+```
+
+### Run the Term Deposit script
+
+```
+pnpm run:term-deposit
 ```
 
 ## Testing
@@ -17,18 +23,4 @@ Tests run with Vitest and React Testing Library.
 
 ```
 pnpm test
-```
-
-## Running a script
-
-For running TypeScript files in the command line.
-
-```
-pnpm tsx [path-to-ts-script]
-```
-
-### Run the Term Deposit script
-
-```
-pnpm run:term-deposit
 ```
