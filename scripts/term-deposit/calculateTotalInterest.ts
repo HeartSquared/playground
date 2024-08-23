@@ -1,6 +1,8 @@
-import { calculateAnnuallyInterest } from './calculateAnnuallyInterest';
-import { calculateMonthlyInterest } from './calculateMonthlyInterest';
-import { calculateQuarterlyInterest } from './calculateQuarterlyInterest';
+import {
+  calculateAnnuallyInterest,
+  calculateMonthlyInterest,
+  calculateQuarterlyInterest,
+} from './calculateInterest';
 import type { InterestPaidOptions } from './types';
 
 type CalculateTotalInterestArgs = {
